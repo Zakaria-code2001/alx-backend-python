@@ -2,17 +2,7 @@
 """multiple coroutines with async"""
 from random import uniform
 import asyncio
-import importlib.util
-
-module_name = "0-basic_async_syntax"
-module_path = "0-basic_async_syntax.py"
-
-spec = importlib.util.spec_from_file_location(module_name, module_path)
-module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(module)
-
-wait_random = module.wait_random
-
+wait_random = __import__('0-basic_async_syntax').wait_random
 
 async def wait_n(n: int, max_delay: int) -> list:
     """
