@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-"""
-Let's execute multiple coroutines
-at the same time with async
-"""
+"""multiple coroutines with async"""
 from random import uniform
 import asyncio
 import importlib.util
