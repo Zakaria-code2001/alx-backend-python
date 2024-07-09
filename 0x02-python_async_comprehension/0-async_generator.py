@@ -10,10 +10,12 @@ Use the random module.
 
 import random
 import asyncio
+from typing import Generator
 
 
-async def wait_random(max_delay: int = 10) -> float:
-    """Waits for a random delay between 0 and max_delay"""
-    random_number = random.uniform(0, max_delay)
-    await asyncio.sleep(random_number)
-    return random_number
+async def async_generator() -> Generator[float, None, None]:
+    """Each time asynchronously waits 1 second,
+        then yield a random number between 0 and 10"""
+    for _ in range(0, 10):
+        await asyncio.sleep(1)
+        yield random.uniform(0, 10)
